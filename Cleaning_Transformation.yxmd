@@ -1,0 +1,447 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>CreditCards (3).xlsx
+Query=`CreditCards$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="CLIENTNUM" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="Double" />
+            <Field name="Attrition_Flag" size="255" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="V_String" />
+            <Field name="Customer_Age" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="Double" />
+            <Field name="Gender" size="255" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="V_String" />
+            <Field name="Dependent_count" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="Double" />
+            <Field name="Education_Level" size="255" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="V_String" />
+            <Field name="Marital_Status" size="255" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="V_String" />
+            <Field name="Income_Category" size="255" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="V_String" />
+            <Field name="Avg_Utilization_Ratio" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="Double" />
+            <Field name="Card_Category" size="255" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="V_String" />
+            <Field name="Months_on_book" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="Double" />
+            <Field name="Total_Relationship_Count" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="Double" />
+            <Field name="Months_Inactive_12_mon" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="Double" />
+            <Field name="Contacts_Count_12_mon" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="Double" />
+            <Field name="Credit_Limit" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="Double" />
+            <Field name="Total_Revolving_Bal" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="Double" />
+            <Field name="Avg_Open_To_Buy" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="Double" />
+            <Field name="Total_Amt_Chng_Q4_Q1" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="Double" />
+            <Field name="Total_Trans_Amt" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="Double" />
+            <Field name="Total_Trans_Ct" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="Double" />
+            <Field name="Total_Ct_Chng_Q4_Q1" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="Double" />
+            <Field name="Avg_Utilization_Ratio2" source="File: C:\Users\Laxmikant\Downloads\CreditCards (3).xlsx|||`CreditCards$`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="258" y="120" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="if [Attrition_Flag] = &quot;Existing Customer&quot; then 0&#xA;else 1&#xA;endif&#xA;" field="Attrition_Flag" size="255" type="V_String" />
+            <FormulaField expression="if [Education_Level] = &quot;Unknown&quot; then 0&#xA;elseif [Education_Level] =&quot;Uneducated&quot; then 1&#xA;elseif [Education_Level] = &quot;High School&quot; then 2&#xA;elseif [Education_Level] = &quot;College&quot; then 3&#xA;elseif [Education_Level] = &quot;Graduate&quot; then 4&#xA;elseif [Education_Level] = &quot;Post-graduate&quot; then 5&#xA;else 6&#xA;endif" field="Education_Level" size="255" type="V_String" />
+            <FormulaField expression="if [Income_Category]= &quot;Unknown&quot; then 0&#xA;elseif [Income_Category] = &quot;Less Than $40k&quot; then 1&#xA;elseif [Income_Category] = &quot;$40k-$60k&quot; then 2&#xA;elseif [Income_Category] = &quot;$60k-$80k&quot; then 3&#xA;elseif [Income_Category] = &quot;$80k-$120k&quot; then 4&#xA;else 5&#xA;endif&#xA;" field="Income_Flag" size="1073741823" type="V_WString" />
+            <FormulaField expression="if [Card_Category] = &quot;Blue&quot; then 1&#xA;elseif [Card_Category] =&quot;Silver&quot; then 2&#xA;elseif [Card_Category] = &quot;Gold&quot; then 3&#xA;else 4&#xA;endif" field="Card_Category" size="255" type="V_String" />
+            <FormulaField expression="if [Marital_Status] = &quot;Unknown&quot; then 0&#xA;elseif [Marital_Status] = &quot;Single&quot; then 1&#xA;elseif [Marital_Status] = &quot;Married&quot; then 2&#xA;else 3&#xA;endif&#xA;&#xA;" field="Marital_Status" size="255" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Attrition_Flag = if [Attrition_Flag] = "Existing Customer" then 0
+else 1
+endif
+
+...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="354" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="CLIENTNUM" selected="True" />
+            <SelectField field="Attrition_Flag" selected="True" type="Int16" size="2" />
+            <SelectField field="Customer_Age" selected="True" />
+            <SelectField field="Gender" selected="True" />
+            <SelectField field="Dependent_count" selected="True" />
+            <SelectField field="Education_Level" selected="True" type="Int32" size="4" />
+            <SelectField field="Marital_Status" selected="True" type="Int32" size="4" />
+            <SelectField field="Income_Category" selected="True" />
+            <SelectField field="Avg_Utilization_Ratio" selected="True" />
+            <SelectField field="Card_Category" selected="True" type="Int32" size="4" />
+            <SelectField field="Months_on_book" selected="True" />
+            <SelectField field="Total_Relationship_Count" selected="True" />
+            <SelectField field="Months_Inactive_12_mon" selected="True" />
+            <SelectField field="Contacts_Count_12_mon" selected="True" />
+            <SelectField field="Credit_Limit" selected="True" />
+            <SelectField field="Total_Revolving_Bal" selected="True" />
+            <SelectField field="Avg_Open_To_Buy" selected="True" />
+            <SelectField field="Total_Amt_Chng_Q4_Q1" selected="True" />
+            <SelectField field="Total_Trans_Amt" selected="True" />
+            <SelectField field="Total_Trans_Ct" selected="True" />
+            <SelectField field="Total_Ct_Chng_Q4_Q1" selected="True" />
+            <SelectField field="Avg_Utilization_Ratio2" selected="True" />
+            <SelectField field="Income_Flag" selected="True" type="Int32" size="4" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="198" y="241" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="CLIENTNUM" action="CountNull" rename="CountNull_CLIENTNUM" />
+            <SummarizeField field="Attrition_Flag" action="CountNull" rename="CountNull_Attrition_Flag" />
+            <SummarizeField field="Customer_Age" action="CountNull" rename="CountNull_Customer_Age" />
+            <SummarizeField field="Gender" action="CountNull" rename="CountNull_Gender" />
+            <SummarizeField field="Dependent_count" action="CountNull" rename="CountNull_Dependent_count" />
+            <SummarizeField field="Education_Level" action="CountNull" rename="CountNull_Education_Level" />
+            <SummarizeField field="Marital_Status" action="CountNull" rename="CountNull_Marital_Status" />
+            <SummarizeField field="Income_Category" action="CountNull" rename="CountNull_Income_Category" />
+            <SummarizeField field="Avg_Utilization_Ratio" action="CountNull" rename="CountNull_Avg_Utilization_Ratio" />
+            <SummarizeField field="Card_Category" action="CountNull" rename="CountNull_Card_Category" />
+            <SummarizeField field="Months_on_book" action="CountNull" rename="CountNull_Months_on_book" />
+            <SummarizeField field="Total_Relationship_Count" action="CountNull" rename="CountNull_Total_Relationship_Count" />
+            <SummarizeField field="Months_Inactive_12_mon" action="CountNull" rename="CountNull_Months_Inactive_12_mon" />
+            <SummarizeField field="Contacts_Count_12_mon" action="CountNull" rename="CountNull_Contacts_Count_12_mon" />
+            <SummarizeField field="Credit_Limit" action="CountNull" rename="CountNull_Credit_Limit" />
+            <SummarizeField field="Total_Revolving_Bal" action="CountNull" rename="CountNull_Total_Revolving_Bal" />
+            <SummarizeField field="Avg_Open_To_Buy" action="CountNull" rename="CountNull_Avg_Open_To_Buy" />
+            <SummarizeField field="Total_Amt_Chng_Q4_Q1" action="CountNull" rename="CountNull_Total_Amt_Chng_Q4_Q1" />
+            <SummarizeField field="Total_Trans_Amt" action="CountNull" rename="CountNull_Total_Trans_Amt" />
+            <SummarizeField field="Total_Trans_Ct" action="CountNull" rename="CountNull_Total_Trans_Ct" />
+            <SummarizeField field="Total_Ct_Chng_Q4_Q1" action="CountNull" rename="CountNull_Total_Ct_Chng_Q4_Q1" />
+            <SummarizeField field="Avg_Utilization_Ratio2" action="CountNull" rename="CountNull_Avg_Utilization_Ratio2" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings>
+        <Position x="162" y="120" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Check Box (135)">True</Value>
+          <Value name="Check Box (136)">True</Value>
+          <Value name="List Box (11)">"CLIENTNUM","Attrition_Flag","Customer_Age","Gender","Dependent_count","Education_Level","Marital_Status","Income_Category","Avg_Utilization_Ratio","Card_Category","Months_on_book","Total_Relationship_Count","Months_Inactive_12_mon","Contacts_Count_12_mon","Credit_Limit","Total_Revolving_Bal","Avg_Open_To_Buy","Total_Amt_Chng_Q4_Q1","Total_Trans_Amt","Total_Trans_Ct","Total_Ct_Chng_Q4_Q1","Avg_Utilization_Ratio2"</Value>
+          <Value name="Check Box (84)">False</Value>
+          <Value name="Check Box (117)">False</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">False</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">True</Value>
+          <Value name="Drop Down (81)">title</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="426" y="49" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Marital_Status" action="GroupBy" rename="Marital_Status" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="450" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>RecordID</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="606" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\LAXMIK~1\AppData\Local\Temp\Engine_16272_cfed4d8d89dade46b9be38b66a1d3092_\Engine_16272_d51ab35992844c42b99fa875364dbe74~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings>
+        <Position x="642" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Drop Down (11)" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>outlier macro (13)</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="C:\Users\Laxmikant\Desktop\outlier macro.yxmc" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings>
+        <Position x="738" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Numeric Up Down (12)">-3.0</Value>
+          <Value name="Drop Down (14)">Avg_Utilization_Ratio</Value>
+          <Value name="Numeric Up Down (18)">3</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Outlier (25)</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="C:\Users\Laxmikant\Desktop\Outlier.yxmc" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="546" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Customer_Age" selected="True" />
+            <SelectField field="Dependent_count" selected="True" />
+            <SelectField field="Avg_Utilization_Ratio" selected="True" />
+            <SelectField field="Months_on_book" selected="True" />
+            <SelectField field="Total_Relationship_Count" selected="True" />
+            <SelectField field="Credit_Limit" selected="True" />
+            <SelectField field="Total_Trans_Amt" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="570" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression><![CDATA[([Z_Score_Customer_Age] > -3 AND [Z_Score_Customer_Age] <3 ) 
+AND
+([Z_Score_Dependent_Count] >-3 AND [Z_Score_Dependent_Count] < 3 ) 
+AND 
+([Z_Score_Avg_Utl] >-3 AND [Z_Score_Avg_Utl]<3) 
+AND
+([Z_Score_Months_On_Book] >-3 AND [Z_Score_Months_On_Book])
+AND
+([Z_Score_Total_Relationship] >-3 AND [Z_Score_Total_Relationship])
+AND
+([Z_Score_Credit_Limit] >-3 AND [Z_Score_Credit_Limit])
+AND
+([Z_score_Total_Transaction_amt] >-3 AND [Z_score_Total_Transaction_amt] <3)
+]]></Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>([Z_Score_Customer_Age] &gt; -3 AND [Z_Score_Customer_Age] &lt;3 ) 
+AND
+([Z_Score_Depe...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="6" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output26" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output26" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output26" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="29" Connection="Input11" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="28" Connection="Input2" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Cleaning_Transformation</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="e568ee68-6ea4-401e-95c1-72e544c3f5c1" />
+      <Telemetry>
+        <PreviousWorkflowId value="28603ddb-2c35-4523-9406-c0a63b1a3da9" />
+        <OriginWorkflowId value="28603ddb-2c35-4523-9406-c0a63b1a3da9" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
